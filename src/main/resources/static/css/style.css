@@ -1,0 +1,31 @@
+.column {
+  float: left;
+}
+
+.left {
+  padding-left: 15%;
+  width: 50%;
+  box-shadow: 0 1px 3px rgba(0,0,0,.4);
+}
+
+.right {
+  padding-left: 15%;
+  width: 50%;
+  box-shadow: 0 1px 3px rgba(0,0,0,.4);
+}
+
+#heading{
+	color:#0B5345;
+}
+
+nav {
+    position: fixed;
+}
+
+#content {
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+}
+
+.fixed {
+    position:fixed;
+}

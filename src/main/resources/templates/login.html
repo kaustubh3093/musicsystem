@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns:th = "http://www.thymeleaf.org">
+<head>
+	
+	<title>Music App</title>
+    
+    <!-- Bootstrap -->
+   	
+   	<meta charset="utf-8">
+  	<meta name="viewport" content="width=device-width, initial-scale=1">
+  	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+  	<!-- reference css in thymelead template -->
+	<link rel = "stylesheet" th:href = "@{/css/style.css}" />
+	
+</head>
+<body>
+	<h2 id = "heading" style="text-align:center;"> Fill the below form to Login </h2>
+	<br><br><br>
+	<div class = "row">
+		<form action = "#" th:action = "@{/api/generateInfo}"
+						th:object = "${credential}" method = "POST">
+				<div class = "form-inline">
+					
+					<label class="control-label col-sm-4"></label>
+					<input type = "text" th:field = "*{username}" class = "form-control" placeholder = "Users Name" required/>
+					<br><br>
+					
+					<label class="control-label col-sm-4"></label>
+					<input type = "text" th:field = "*{password}" class = "form-control" placeholder = "Password" size="49" required/>
+					<br><br>
+					
+					<label class="control-label col-sm-4"></label>
+					<button type="Submit" class="btn btn-success">Login</button>
+					<br><br>
+					<label class="control-label col-sm-4"></label>
+					<a href = "/api/main">Click here to go to the main page</a>
+				</div>
+	
+			</form>
+	</div>
+	
+	
+</body>
+</html>
