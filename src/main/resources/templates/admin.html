@@ -16,14 +16,108 @@
 	
 </head>
 <body>
-	<h2 id = "heading" style="text-align:center;">Login as a Admin Music App </h2>
+	<div class = "container">
+		<div class = "row" style="background-color:#A9DFBF ;height: 180px;">
+	 		  <div class="item active" >
+		        <img src="/photo/adminUser.jpg" style = "width: 100%; height: 180px;">
+		      </div>
+		</div>
+		<br>
+		<h2 id = "heading" style="text-align:center;">Logged in with Admin Privileges</h2>
+	    <br>
+		<table id = "myTable2" class = "table table-bordered table-striped">
+			<thead class = "thead-dark">
+				<tr>
+					<th onclick="sortTable(0)">Artist</th>
+					<th onclick="sortTable(1)">User Count</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr th:each = "tempArtist : ${artists}">
+					<td th:text = "${tempArtist.artists}" />
+					<td th:text = "${tempArtist.userCount}" />
+				</tr>
+			</tbody>
+		</table>
+		<br><br>
+		<table id = "myTable1" class = "table table-bordered table-striped">
+			<thead class = "thead-dark">
+				<tr>
+					<th onclick="sortTable1(0)">Song Title</th>
+					<th onclick="sortTable1(1)">Artist</th>
+					<th onclick="sortTable1(2)">User Count</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr th:each = "tempUserCount : ${usercount}">
+					<td th:text = "${tempUserCount.title}" />
+					<td th:text = "${tempUserCount.artist}" />
+					<td th:text = "${tempUserCount.userCount}" />
+				</tr>
+			</tbody>
+		</table>
 	
-	<p> Loop through the Artists table and User count table and create a table entry with the given username</p>
-	<br><br>
-	<p> Create an endpoint to create new entry in the Music Entry table </p>
-	<br><br>
-	<p> Create an endpoint to delete the entry from the Music Entry table </p>
-	<br><br>
-	
+		<label class="control-label col-sm-5"></label>
+		<form action="/api/main">
+	    	<input type="Submit" class="btn btn-success" value="Log out" />
+		</form>
+		
+		<div class="footer-padding"></div>
+		<div class="footer">
+		    <p>@2020 Created by Kaustubh Singh</p>
+		</div>
+	</div>
+	  
+	<script>
+		function sortTable(n) {
+		  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+		  table = document.getElementById("myTable2");
+		  switching = true;
+		  while (switching) {
+		    switching = false;
+		    rows = table.rows;
+		    for (i = 1; i < (rows.length - 1); i++) {
+		      shouldSwitch = false;
+		      x = rows[i].getElementsByTagName("TD")[n];
+		      y = rows[i + 1].getElementsByTagName("TD")[n];
+	          if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+	         	 shouldSwitch = true;
+	          	 break;
+		       }
+		    }
+		    if (shouldSwitch) {
+		      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+		      switching = true;
+		      switchcount ++;
+		    }
+		  }
+		}
+		function sortTable1(n) {
+			  var table, rows, switching, i, x, y, shouldSwitch, dir, switchcount = 0;
+			  table = document.getElementById("myTable1");
+			  switching = true;
+			  while (switching) {
+			    switching = false;
+			    rows = table.rows;
+			    for (i = 1; i < (rows.length - 1); i++) {
+			      shouldSwitch = false;
+			      x = rows[i].getElementsByTagName("TD")[n];
+			      y = rows[i + 1].getElementsByTagName("TD")[n];
+		          if (x.innerHTML.toLowerCase() < y.innerHTML.toLowerCase()) {
+		         	 shouldSwitch = true;
+		          	 break;
+			       }
+			    }
+			    if (shouldSwitch) {
+			      rows[i].parentNode.insertBefore(rows[i + 1], rows[i]);
+			      switching = true;
+			      switchcount ++;
+			   }
+			}
+		}
+		
+	</script>
 </body>
 </html>

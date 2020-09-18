@@ -1,5 +1,7 @@
 package com.java.musicsystem.entity;
 
+import java.util.UUID;
+
 import javax.persistence.Entity;
 import javax.persistence.Id;
 
@@ -13,7 +15,7 @@ public class MusicEntry {
 	private String artist;
 	
 	public MusicEntry() {
-		
+		id = UUID.randomUUID().toString();
 	}
 
 	public MusicEntry(String id, String user, String song, String artist) {

@@ -16,25 +16,37 @@
 	
 </head>
 <body>
-	<h2 id = "heading" style="text-align:center;"> Music App </h2>
-	<br><br><br>
-	<div class = "row">
-		<div  class = "column left">
-			<h3 id = "heading"><b>New User Registration</b></h3>
-			<a th:href = "@{/api/showFormToRegister}">
-				Click here to Register
-			</a>
-	
+	<div class = "container">
+		<div class = "row" style="background-color:#A9DFBF ;height: 180px;">
+	 		  <div class="item active" >
+		        <img src="/photo/normalUser.jpg" style = "width: 100%; height: 180px;">
+		      </div>
 		</div>
 		
-		<div class = "column right">
-			<h3 id = "heading"><b>Login</b></h3>
-			<a th:href = "@{/api/showFormToLogin}">
-				Click here to Login
-			</a>
+		<br><br><br>
+		<div class = "row">
+			<div  class = "column left">
+				<h3 id = "heading"><b>New User Registration</b></h3>
+				<a th:href = "@{/api/showFormToRegister}">
+					Click here to Register
+				</a>
+		
+			</div>
+			
+			<div class = "column right">
+				<h3 id = "heading"><b>Login</b></h3>
+				<a th:href = "@{/api/showFormToLogin}">
+					Click here to Login
+				</a>
+			</div>
+		</div>
+		<br><br><br>
+		<br><br><br>
+		<br><br><br>
+		<div class="footer-padding"></div>
+		<div class="footer">
+		    <p>@2020 Created by Kaustubh Singh</p>
 		</div>
 	</div>
-	
-	
 </body>
 </html>

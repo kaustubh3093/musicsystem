@@ -16,16 +16,55 @@
 	
 </head>
 <body>
-	<h2 id = "heading" style="text-align:center;"> Login as a User Music App </h2>
 	
-	<p> Loop through the Music Entry DB and get all the entry with the username who logged in </p>
-	<br><br>
-	<p> Create an endpoint to create new entry in the Music Entry table </p>
-	<br><br>
-	<p> Whenever the entry is created in the Music entry table -- Update the User count and Artist table as well </p>
-	<br><br>
-	<p> Create an endpoint to delete the entry from the Music Entry table </p>
-	<br><br>
+	<div class = "container">
+		<div class = "row" style="background-color:#A9DFBF ;height: 180px;">
+	 		  <div class="item active" >
+		        <img src="/photo/normalUser.jpg" style = "width: 100%; height: 180px;">
+		      </div>
+		</div>
+		<table class = "table table-bordered table-striped">
+			<thead class = "thead-dark">
+				<tr>
+					<th>User Name</th>
+					<th>Song</th>
+					<th>Artist</th>
+					<th>Delete Entry</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+				<tr th:each = "tempMusic : ${music}">
+					<td th:text = "${tempMusic.user}" />
+					<td th:text = "${tempMusic.song}" />
+					<td th:text = "${tempMusic.artist}" />
+					<td>
+						<a th:href = "@{/api/delete(musicId = ${tempMusic.id})}"
+						class = "btn btn-danger btn-sm"
+						onclick = "if (!(confirm('Are you sure you want to delete this Entry?'))) return false">
+						Delete
+						</a>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+		
+		<label class="control-label col-sm-5"></label>
+		<form action="/api/createNewEntry">
+	    	<input type="Submit" class="btn btn-success" value="Create New Entry" />
+		</form>
+		<br>
+		<label class="control-label col-sm-5"></label>
+		<form action="/api/main">
+	    	&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="Submit" class="btn btn-success" value="Log out" />
+		</form>
+		
+		<div class="footer-padding"></div>
+		<div class="footer">
+		    <p>@2020 Created by Kaustubh Singh</p>
+		</div>
+	</div>
+	
 	
 </body>
 </html>

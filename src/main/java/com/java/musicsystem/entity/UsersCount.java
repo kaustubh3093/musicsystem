@@ -1,12 +1,7 @@
 package com.java.musicsystem.entity;
 
-import javax.persistence.Entity;
-import javax.persistence.Id;
-
-@Entity
 public class UsersCount {
 
-	@Id
 	private String title;
 	private String artist;
 	private int userCount;
@@ -16,7 +11,6 @@ public class UsersCount {
 	}
 
 	public UsersCount(String title, String artist, int userCount) {
-		super();
 		this.title = title;
 		this.artist = artist;
 		this.userCount = userCount;

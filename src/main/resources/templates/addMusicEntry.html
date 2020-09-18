@@ -16,26 +16,24 @@
 	
 </head>
 <body>
-	<h2 id = "heading" style="text-align:center;"> Fill the below form to Login </h2>
+	<h2 id = "heading" style="text-align:center;"> Fill the below form to Create new Entry </h2>
 	<br><br><br>
 	<div class = "row">
-		<form autocomplete="off" action = "#" th:action = "@{/api/generateInfo}"
-						th:object = "${credential}" method = "POST">
+		<form action = "#" th:action = "@{/api/addMusicToDB}"
+						th:object = "${music}" method = "POST">
 				<div class = "form-inline">
 					
 					<label class="control-label col-sm-4"></label>
-					<input type = "text" th:field = "*{username}" class = "form-control" placeholder = "Users Name" required/>
+					<input type = "text" th:field = "*{song}" class = "form-control" placeholder = "Song Name" required/>
 					<br><br>
 					
 					<label class="control-label col-sm-4"></label>
-					<input type = "password" th:field = "*{password}" class = "form-control" placeholder = "Password" size="49" required/>
+					<input type = "text" th:field = "*{artist}" class = "form-control" placeholder = "Artist" size="49" required/>
 					<br><br>
 					
 					<label class="control-label col-sm-4"></label>
-					<button type="Submit" class="btn btn-success">Login</button>
+					<button type="Submit" class="btn btn-success">Create</button>
 					<br><br>
-					<label class="control-label col-sm-4"></label>
-					<a href = "/api/main">Click here to go to the main page</a>
 				</div>
 	
 			</form>
